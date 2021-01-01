@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  role_name: jamulus-docker
+  role_name: jamulus_docker
   author: guidowojke
   description: configure and start jamulus container for Linux.
   company: "---"
