@@ -18,3 +18,18 @@
     # group: "{{ jamulus_username }}"
     mode: '0755'
   become: yes
+
+# create docker compose file
+- name: create jamulus docker compose file
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ jamulus_folder }}/docker-compose.yml"
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: 0644
+
+# run docker compose to start container
+- name: run docker compose command
+  command: docker-compose up --detach --no-color --quiet-pull --timeout 60
+  args:
+    chdir: "{{ jamulus_folder }}/"
