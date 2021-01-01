@@ -7,7 +7,7 @@
     # owner: "{{ jamulus_username }}"
     # group: "{{ jamulus_username }}"
     mode: '0755'
-  become: yes
+  become: true
 
 # create jamulus docker compose folder
 - name: Create jamulus docker compose directory
@@ -17,7 +17,7 @@
     # owner: "{{ jamulus_username }}"
     # group: "{{ jamulus_username }}"
     mode: '0755'
-  become: yes
+  become: true
 
 # create docker compose file
 - name: create jamulus docker compose file
@@ -27,6 +27,7 @@
     # owner: "{{ jamulus_username }}"
     # group: "{{ jamulus_username }}"
     mode: 0644
+  become: true
 
 # run docker compose to start container
 - name: run docker compose command
@@ -34,3 +35,4 @@
   args:
     chdir: "{{ jamulus_folder }}/"
   when: jamulus_container_start
+  become: true
