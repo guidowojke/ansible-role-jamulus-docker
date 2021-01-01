@@ -14,8 +14,8 @@ galaxy_info:
         - buster
     - name: Ubuntu
       versions:
-        - bionic
-        - focal
+        - bionic    # ubuntu1804
+        - focal     # ubuntu2004
   galaxy_tags:
     - web
     - containers
