@@ -1,6 +1,6 @@
 ---
 jamulus_version: "3.6.2"
-jamulus_release_version: "r{{ jamulus_version | regex_replace('\.', '_') }}"
+jamulus_release_version: "r{{ jamulus_version | regex_replace('\\.', '_') }}"
 jamulus_username: "jamulus"
 jamulus_folder: "/opt/{{ jamulus_username }}"
 jamulus_log_folder: "/var/log/{{ jamulus_username }}/"
