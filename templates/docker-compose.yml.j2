@@ -23,6 +23,6 @@ services:
       - "--serverinfo"
       - "{{ jamulus_serverinfo }}
       - "--centralserver"
-      - "localhost"
+      - "{{ jamulus_centralserver }}"
       - "--numchannels"
       - "{{ jamulus_numchannels }}"
