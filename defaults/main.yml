@@ -1,3 +1,4 @@
+---
 jamulus_version: "3.6.2"
 jamulus_release_version: "r{{ jamulus_version | regex_replace('\.', '_') }}"
 jamulus_username: "jamulus"
