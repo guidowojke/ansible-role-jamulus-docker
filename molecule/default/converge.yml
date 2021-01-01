@@ -6,6 +6,7 @@
   vars:
     docker_install_compose: true
     docker_compose_version: "1.26.0"
+    jamulus_container_start: no
 
   pre_tasks:
     - name: Update apt cache.

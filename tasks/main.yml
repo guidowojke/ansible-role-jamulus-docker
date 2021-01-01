@@ -33,3 +33,4 @@
   command: docker-compose up --detach --no-color --quiet-pull --timeout 60
   args:
     chdir: "{{ jamulus_folder }}/"
+  when: jamulus_container_start
