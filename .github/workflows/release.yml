@@ -6,7 +6,7 @@
 # See: https://github.com/ansible/galaxy/issues/46
 
 name: Release
-'on':
+on:
   push:
     tags:
       - 'v*'
@@ -16,6 +16,8 @@ defaults:
     working-directory: 'guidowojke.jamulus-docker'
 
 jobs:
+  push:
+    environment: production
 
   github-release:
     name: Create a GitHub Release
