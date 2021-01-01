@@ -6,7 +6,7 @@
 # See: https://github.com/ansible/galaxy/issues/46
 
 name: Release
-'on':
+on:
   push:
     tags:
       - 'v*'
@@ -34,7 +34,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - first pre-release for jamulus container guidowojke/3.6.2.1
+            - completed variables for jamulus docker-compose.yml
           draft: false
           prerelease: true
 

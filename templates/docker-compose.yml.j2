@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jamulus:
     container_name: jamulus
-    image: guidowojke/jamulus:{{ jamulus_container_version }}
+    image: {{ jamulus_container_name }}
     restart: always
     ports:
       - "{{ jamulus_port }}:22124/udp"
@@ -12,8 +12,17 @@ services:
     entrypoint:
       - "Jamulus"
       - "--server"
+      - "--multithreading"
       - "--nogui"
+      - "--port"
+      - "22124"
+      - "--log"
+      - "{{ jamulus_log_folder }}/jamulus.log"
       - "--welcomemessage"
       - "{{ jamulus_welcomemessage }}"
+      - "--serverinfo"
+      - "{{ jamulus_serverinfo }}
+      - "--centralserver"
+      - "{{ jamulus_centralserver }}"
       - "--numchannels"
-      - "16"
+      - "{{ jamulus_numchannels }}"
