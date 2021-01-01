@@ -1,0 +1,21 @@
+---
+# create jamulus log folder
+- name: Create jamulus docker compose directory
+  file:
+    path: "{{ jamulus_log_folder }}"
+    state: directory
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: '0755'
+  become: yes
+
+# create jamulus docker compose folder
+- name: Create jamulus docker compose directory
+  file:
+    path: "{{ jamulus_folder }}"
+    state: directory
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: '0755'
+  become: yes
+
