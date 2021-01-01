@@ -1,0 +1,38 @@
+---
+# create jamulus log folder
+- name: Create jamulus docker compose directory
+  file:
+    path: "{{ jamulus_log_folder }}"
+    state: directory
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: '0755'
+  become: true
+
+# create jamulus docker compose folder
+- name: Create jamulus docker compose directory
+  file:
+    path: "{{ jamulus_folder }}"
+    state: directory
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: '0755'
+  become: true
+
+# create docker compose file
+- name: create jamulus docker compose file
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ jamulus_folder }}/docker-compose.yml"
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: 0644
+  become: true
+
+# run docker compose to start container
+- name: run docker compose command
+  command: docker-compose up --detach --no-color --quiet-pull --timeout 60
+  args:
+    chdir: "{{ jamulus_folder }}/"
+  when: jamulus_container_start
+  become: true
