@@ -18,4 +18,3 @@
     # group: "{{ jamulus_username }}"
     mode: '0755'
   become: yes
-
