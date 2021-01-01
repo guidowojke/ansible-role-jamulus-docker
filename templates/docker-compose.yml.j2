@@ -12,8 +12,17 @@ services:
     entrypoint:
       - "Jamulus"
       - "--server"
+      - "--multithreading"
       - "--nogui"
+      - "--port"
+      - "22124"
+      - "--log"
+      - "{{ jamulus_log_folder }}/jamulus.log"
       - "--welcomemessage"
       - "{{ jamulus_welcomemessage }}"
+      - "--serverinfo"
+      - "{{ jamulus_serverinfo }}
+      - "--centralserver"
+      - "localhost"
       - "--numchannels"
-      - "16"
+      - "{{ jamulus_numchannels }}"
