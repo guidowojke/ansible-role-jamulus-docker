@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jamulus:
     container_name: jamulus
-    image: guidowojke/jamulus:{{ jamulus_container_version }}
+    image: {{ jamulus_container_name }}
     restart: always
     ports:
       - "{{ jamulus_port }}:22124/udp"
