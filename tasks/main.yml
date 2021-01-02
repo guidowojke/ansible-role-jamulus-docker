@@ -19,6 +19,16 @@
     mode: '0755'
   become: true
 
+# create jamulus recording folder
+- name: Create jamulus recording directory
+  file:
+    path: "{{ jamulus_rec_folder }}"
+    state: directory
+    # owner: "{{ jamulus_username }}"
+    # group: "{{ jamulus_username }}"
+    mode: '0755'
+  become: true
+
 # create docker compose file
 - name: create jamulus docker compose file
   template:

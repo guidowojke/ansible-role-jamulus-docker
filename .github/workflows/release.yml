@@ -34,7 +34,8 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - completed variables for jamulus docker-compose.yml
+            - introduced named volume for jamulus logs
+            - introduced named volume for container temp folder
           draft: false
           prerelease: true
 
