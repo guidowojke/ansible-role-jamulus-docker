@@ -24,10 +24,13 @@ services:
       - "--port"
       - "22124"
 {% if jamulus_recording %}
+      # - "--norecord"
       - "--recording"
       - "{{ jamulus_rec_folder }}"
 {% else %}
       - "--norecord"
+      # - "--recording"
+      # - "{{ jamulus_rec_folder }}"
 {% endif %}
       - "--log"
       - "{{ jamulus_log_folder }}/jamulus-docker.log"
