@@ -65,3 +65,30 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
+
+  maven:
+    name: maven build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'guidowojke.jamulus-docker'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Build with Maven
+        run: mvn --file pom.xml --batch-mode clean verify
+
+      - name: create staging folder and safe artifacts
+        run: mkdir staging && cp target/*.jar staging
+
+      - name: store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging

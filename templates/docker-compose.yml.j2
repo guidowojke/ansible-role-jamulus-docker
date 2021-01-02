@@ -6,7 +6,7 @@ services:
     image: {{ jamulus_container_name }}
     restart: always
     ports:
-      - "{{ jamulus_port }}:22124/udp"
+      - "{{ jamulus_container_port }}:22124/udp"
     environment:
       TZ: "{{ jamulus_timezone }}"
     entrypoint:
@@ -20,9 +20,9 @@ services:
       - "{{ jamulus_log_folder }}/jamulus.log"
       - "--welcomemessage"
       - "{{ jamulus_welcomemessage }}"
-      - "--serverinfo"
-      - "{{ jamulus_serverinfo }}"
       - "--centralserver"
       - "{{ jamulus_centralserver }}"
+      - "--serverinfo"
+      - "{{ jamulus_serverinfo }}"
       - "--numchannels"
       - "{{ jamulus_numchannels }}"
