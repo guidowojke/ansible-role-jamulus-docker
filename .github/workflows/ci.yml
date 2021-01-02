@@ -81,3 +81,12 @@ jobs:
 
       - name: Build with Maven
         run: mvn --batch-mode clean verify
+
+      - name create staging folder and safe artifacts
+        run: mkdir staging && cp target/*.jar staging
+
+      - name: store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
