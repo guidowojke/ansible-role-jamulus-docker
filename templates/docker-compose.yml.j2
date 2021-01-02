@@ -10,6 +10,7 @@ services:
       - "{{ jamulus_container_port }}:22124/udp"
     volumes:
       - jamulus_logs:{{ jamulus_log_folder }}
+      - jamulus_recs:{{ jamulus_rec_folder }}
       - jamulus_tmp:/tmp
     environment:
       TZ: "{{ jamulus_timezone }}"
@@ -20,6 +21,12 @@ services:
       - "--nogui"
       - "--port"
       - "22124"
+{% if jamulus_recording %}
+      - "--recording"
+      - "{{ jamulus_rec_folder }}"
+{% else %}
+      - "--norecord"
+{% endif %}
       - "--log"
       - "{{ jamulus_log_folder }}/jamulus-docker.log"
       - "--welcomemessage"
@@ -32,6 +39,8 @@ services:
       - "{{ jamulus_numchannels }}"
 
 volumes:
+  jamulus_recs:
+    name: jamulus_recs
   jamulus_logs:
     name: jamulus_logs
   jamulus_tmp:
