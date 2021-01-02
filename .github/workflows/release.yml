@@ -34,7 +34,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - completed variables for jamulus docker-compose.yml
+            - changed variable from jamulus_port to jamulus_container_port
           draft: false
           prerelease: true
 
