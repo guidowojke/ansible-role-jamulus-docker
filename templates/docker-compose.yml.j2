@@ -7,6 +7,9 @@ services:
     restart: always
     ports:
       - "{{ jamulus_container_port }}:22124/udp"
+    volumes:
+      - jamulus_logs:{{ jamulus_log_folder }}
+      - jamulus_tmp:/tmp
     environment:
       TZ: "{{ jamulus_timezone }}"
     entrypoint:
@@ -17,7 +20,7 @@ services:
       - "--port"
       - "22124"
       - "--log"
-      - "{{ jamulus_log_folder }}/jamulus.log"
+      - "{{ jamulus_log_folder }}/jamulus-docker.log"
       - "--welcomemessage"
       - "{{ jamulus_welcomemessage }}"
       - "--centralserver"
@@ -26,3 +29,12 @@ services:
       - "{{ jamulus_serverinfo }}"
       - "--numchannels"
       - "{{ jamulus_numchannels }}"
+
+volumes:
+  jamulus_logs:
+    name: jamulus_logs
+  jamulus_tmp:
+    name: jamulus_tmp
+    driver_opts:
+      type: tmpfs
+      device: tmpfs

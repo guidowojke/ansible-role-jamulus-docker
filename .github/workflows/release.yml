@@ -34,7 +34,8 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - changed variable from jamulus_port to jamulus_container_port
+            - introduced named volume for jamulus logs
+            - introduced named volume for container temp folder
           draft: false
           prerelease: true
 
