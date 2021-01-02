@@ -10,7 +10,9 @@ services:
       - "{{ jamulus_container_port }}:22124/udp"
     volumes:
       - jamulus_logs:{{ jamulus_log_folder }}
+      # - {{ jamulus_log_folder }}:{{ jamulus_log_folder }}
       - jamulus_recs:{{ jamulus_rec_folder }}
+      # - {{ jamulus_rec_folder }}:{{ jamulus_rec_folder }}
       - jamulus_tmp:/tmp
     environment:
       TZ: "{{ jamulus_timezone }}"
