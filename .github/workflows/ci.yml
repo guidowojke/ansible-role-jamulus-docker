@@ -82,7 +82,7 @@ jobs:
       - name: Build with Maven
         run: mvn --file pom.xml --batch-mode clean verify
 
-      - name create staging folder and safe artifacts
+      - name: create staging folder and safe artifacts
         run: mkdir staging && cp target/*.jar staging
 
       - name: store build artifacts
