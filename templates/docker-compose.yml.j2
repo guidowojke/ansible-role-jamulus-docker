@@ -5,6 +5,7 @@ services:
     container_name: jamulus
     image: {{ jamulus_container_name }}
     restart: always
+    read_only: false
     ports:
       - "{{ jamulus_container_port }}:22124/udp"
     volumes:
