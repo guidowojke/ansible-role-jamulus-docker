@@ -34,8 +34,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - introduced named volume for jamulus logs
-            - introduced named volume for container temp folder
+            - added init process in docker with init: true in docker-compose file
           draft: false
           prerelease: true
 

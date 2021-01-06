@@ -4,6 +4,7 @@ services:
   jamulus:
     container_name: jamulus
     image: {{ jamulus_container_name }}
+    init: true
     restart: always
     read_only: false
     ports:
