@@ -2,8 +2,9 @@
 version: "3.7"
 services:
   jamulus:
-    container_name: jamulus
+    container_name: {{ jamulus_username }}
     image: {{ jamulus_container_name }}
+    init: true
     restart: always
     read_only: false
     ports:
@@ -11,8 +12,8 @@ services:
     volumes:
       - jamulus_logs:{{ jamulus_log_folder }}
       # - {{ jamulus_log_folder }}:{{ jamulus_log_folder }}
-      - jamulus_recs:{{ jamulus_rec_folder }}
-      # - {{ jamulus_rec_folder }}:{{ jamulus_rec_folder }}
+      - jamulus_recs:{{ jamulus_recording_folder }}
+      # - {{ jamulus_recording_folder }}:{{ jamulus_recording_folder }}
       - jamulus_tmp:/tmp
     environment:
       TZ: "{{ jamulus_timezone }}"
@@ -26,11 +27,11 @@ services:
 {% if jamulus_recording %}
       # - "--norecord"
       - "--recording"
-      - "{{ jamulus_rec_folder }}"
+      - "{{ jamulus_recording_folder }}"
 {% else %}
       - "--norecord"
       # - "--recording"
-      # - "{{ jamulus_rec_folder }}"
+      # - "{{ jamulus_recording_folder }}"
 {% endif %}
       - "--log"
       - "{{ jamulus_log_folder }}/jamulus-docker.log"
