@@ -4,6 +4,10 @@
 * https://jeffkreeftmeijer.com/git-flow/
 * https://bitbucket.org/atlassian/jgit-flow/wiki/Home
 
+### search for maven plugin updates
+```
+mvn --batch-mode versions:display-plugin-updates
+```
 ### automated release with jgitflow-maven-plugin (Quick Release)
 ```
 git pull --all
