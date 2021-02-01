@@ -22,7 +22,7 @@
 # create jamulus recording folder
 - name: Create jamulus recording directory
   file:
-    path: "{{ jamulus_rec_folder }}"
+    path: "{{ jamulus_recording_folder }}"
     state: directory
     # owner: "{{ jamulus_username }}"
     # group: "{{ jamulus_username }}"
