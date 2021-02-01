@@ -37,7 +37,7 @@ jobs:
             - added init process in docker with init: true in docker-compose file
             - changed container name to install multiple instances
           draft: false
-          prerelease: true
+          prerelease: false
 
   galaxy-release:
     name: Release
